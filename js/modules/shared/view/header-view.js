@@ -31,12 +31,30 @@ const HeaderView = {
   updateCartBadge(controller) {
     const badgeEl = document.getElementById("header-cart-badge");
     if (!badgeEl) return;
+    const cartLink = badgeEl.closest(".header-cart-link");
+    const isAuthenticated = Boolean(UserService.getCurrentUser());
+    if (cartLink) {
+      cartLink.href = isAuthenticated ? "giohang.html" : "dangnhap.html?returnUrl=giohang.html";
+      cartLink.setAttribute("aria-label", isAuthenticated ? "Xem giỏ hàng" : "Đăng nhập để xem giỏ hàng");
+    }
+    const cartWrapper = badgeEl.closest(".header-cart-wrapper");
+    if (cartWrapper) cartWrapper.classList.toggle("guest-cart", !isAuthenticated);
+    if (!isAuthenticated) {
+      badgeEl.textContent = "0";
+      badgeEl.style.display = "none";
+      const miniCartList = document.getElementById("mini-cart-items");
+      if (miniCartList) miniCartList.innerHTML = "<div class=\"mini-cart-empty\">Đăng nhập để sử dụng giỏ hàng</div>";
+      const miniCartFooter = document.getElementById("mini-cart-footer");
+      if (miniCartFooter) miniCartFooter.style.display = "none";
+      return;
+    }
     const totalCount = CartService.getCount();
     badgeEl.textContent = totalCount;
     badgeEl.style.display = totalCount > 0 ? "inline-block" : "none";
   
   },
   renderMiniCart(controller) {
+    if (!UserService.getCurrentUser()) return;
     const miniCartList = document.getElementById("mini-cart-items");
     const miniCartFooter = document.getElementById("mini-cart-footer");
     if (!miniCartList) return;

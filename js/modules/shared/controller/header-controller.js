@@ -44,10 +44,9 @@ const HeaderController = {
     document.addEventListener("click", (e) => {
       if (e.target.closest("#btn-logout")) {
         e.preventDefault();
-        UserService.logout();
-        setTimeout(() => {
+        UserService.logout().finally(() => {
           window.location.href = "trangchu.html";
-        }, 200);
+        });
       }
     });
   },

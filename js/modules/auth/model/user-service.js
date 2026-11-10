@@ -15,10 +15,14 @@ const UserService = {
     return true;
   },
 
-  logout() {
+  async logout() {
     Storage.remove("currentUser");
+    // Giỏ và danh sách yêu thích là dữ liệu riêng tư, không để lộ cho phiên khách tiếp theo.
+    Storage.set("cart", []);
+    Storage.set("wishlist", []);
     sessionStorage.removeItem("edumarket-access-token");
     localStorage.removeItem("edumarket-authenticated");
+    await Storage.flush();
     return true;
   },
 

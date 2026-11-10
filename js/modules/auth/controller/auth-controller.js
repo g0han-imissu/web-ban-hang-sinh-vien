@@ -134,7 +134,11 @@ const AuthController = {
       if (res.success) {
         Toast.success("Đăng nhập thành công", `Xin chào, ${res.user.hoTen}! Chúc bạn mua sắm vui vẻ.`);
         setTimeout(() => {
-          window.location.href = "trangchu.html";
+          const requestedPage = new URLSearchParams(window.location.search).get("returnUrl");
+          const safeReturnPage = requestedPage && /^[a-z0-9_-]+\.html$/i.test(requestedPage)
+            ? requestedPage
+            : "trangchu.html";
+          window.location.href = safeReturnPage;
         }, 1200);
       } else {
         Toast.error("Đăng nhập thất bại", res.message);

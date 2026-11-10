@@ -1,10 +1,14 @@
 // 3. Dịch vụ Giỏ hàng
 const CartService = {
   getCart() {
+    if (!UserService.getCurrentUser()) return [];
     return Storage.get("cart", []);
   },
 
   addToCart(productId, quantity = 1) {
+    if (!UserService.getCurrentUser()) {
+      return { success: false, message: "Vui lòng đăng nhập để sử dụng giỏ hàng." };
+    }
     const cart = this.getCart();
     const product = ProductService.getById(productId);
     if (!product) return { success: false, message: "Sản phẩm không tồn tại!" };
@@ -34,6 +38,7 @@ const CartService = {
   },
 
   updateQuantity(productId, quantity) {
+    if (!UserService.getCurrentUser()) return false;
     const cart = this.getCart();
     const product = ProductService.getById(productId);
     if (!product) return false;
@@ -51,6 +56,7 @@ const CartService = {
   },
 
   removeFromCart(productId) {
+    if (!UserService.getCurrentUser()) return false;
     let cart = this.getCart();
     cart = cart.filter(item => item.productId !== productId);
     Storage.set("cart", cart);
@@ -58,6 +64,7 @@ const CartService = {
   },
 
   clearCart() {
+    if (!UserService.getCurrentUser()) return false;
     Storage.set("cart", []);
     return true;
   },

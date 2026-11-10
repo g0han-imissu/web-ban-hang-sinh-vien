@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giới Thiệu Đồ Án & Thành Viên - EduMarket</title>
+  <title>Giới Thiệu EduMarket</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -26,34 +26,6 @@
       border-bottom: 2px solid var(--color-primary-light);
       padding-bottom: 12px;
     }
-    .member-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .member-card {
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      padding: 22px;
-      text-align: center;
-      background: var(--bg-body);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .member-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-card-hover);
-      background: #ffffff;
-      border-color: var(--color-primary-soft);
-    }
-    .member-avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      margin: 0 auto 14px;
-      object-fit: cover;
-      border: 3px solid var(--color-primary);
-    }
     .tech-badge-list {
       display: flex;
       flex-wrap: wrap;
@@ -71,9 +43,6 @@
       align-items: center;
       gap: 6px;
       border: 1px solid var(--color-primary-soft);
-    }
-    @media (max-width: 768px) {
-      .member-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -107,7 +76,7 @@
             </div>
           </a>
           <span style="font-size: 1.25rem; font-weight: 600; color: var(--text-main); border-left: 2px solid var(--border-color); padding-left: 16px;">
-            Giới Thiệu Đồ Án & Thành Viên Nhóm
+            Giới Thiệu EduMarket
           </span>
         </div>
       </div>
@@ -136,43 +105,6 @@
             <span class="tech-pill"><i class="fa-solid fa-bell"></i> Toast Notification</span>
             <span class="tech-pill"><i class="fa-solid fa-mobile-screen"></i> Responsive Mobile First</span>
             <span class="tech-pill"><i class="fa-brands fa-github"></i> GitHub Pages Deployment</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- CARD 2: THÀNH VIÊN NHÓM -->
-      <section class="about-card">
-        <h2 class="about-title">
-          <i class="fa-solid fa-users"></i> ĐỘI NGŨ THÀNH VIÊN NHÓM THỰC HIỆN
-        </h2>
-        <p class="text-muted" style="font-size: 0.92rem;">Danh sách sinh viên nghiên cứu và lập trình:</p>
-
-        <div class="member-grid">
-          <div class="member-card">
-            <img class="member-avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80" alt="Nguyễn Văn An">
-            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">Nguyễn Văn An</h3>
-            <div class="text-primary fw-semibold mb-2" style="font-size: 0.88rem;">MSSV: 20210001 (Trưởng Nhóm)</div>
-            <p class="text-secondary" style="font-size: 0.85rem; line-height: 1.5;">
-              Thiết kế kiến trúc hệ thống, CSS Tone Xanh hiện đại, Kênh Người Bán & Quản lý LocalStorage.
-            </p>
-          </div>
-
-          <div class="member-card">
-            <img class="member-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80" alt="Trần Thị Mai">
-            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">Trần Thị Mai</h3>
-            <div class="text-primary fw-semibold mb-2" style="font-size: 0.88rem;">MSSV: 20210002 (Thành viên)</div>
-            <p class="text-secondary" style="font-size: 0.85rem; line-height: 1.5;">
-              Thiết kế Trang chủ, Chi tiết sản phẩm, Gallery ảnh, Hệ thống Đánh giá sao & Wishlist.
-            </p>
-          </div>
-
-          <div class="member-card">
-            <img class="member-avatar" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=120&auto=format&fit=crop&q=80" alt="Lê Hoàng Nam">
-            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">Lê Hoàng Nam</h3>
-            <div class="text-primary fw-semibold mb-2" style="font-size: 0.88rem;">MSSV: 20221234 (Thành viên)</div>
-            <p class="text-secondary" style="font-size: 0.85rem; line-height: 1.5;">
-              Thiết kế Giỏ hàng, Mã giảm giá Regex MSSV, 3 phương thức thanh toán & Timeline đơn hàng.
-            </p>
           </div>
         </div>
       </section>

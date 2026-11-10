@@ -17,6 +17,10 @@ const CartController = {
   selectedPaymentMethod: "COD", // "COD" | "QR" | "SPayLater"
 
   init() {
+    if (!UserService.getCurrentUser()) {
+      window.location.replace("dangnhap.html?returnUrl=giohang.html");
+      return;
+    }
     this.renderCartTable();
     this.initUserInfo();
     this.bindEvents();
